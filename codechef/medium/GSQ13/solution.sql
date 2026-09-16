@@ -1,5 +1,7 @@
-/*Solution as follows */
+/* Solution as follows */ 
 
-DELETE FROM  employee
-WHERE Department = 'Hr';   
-select * from employee;
+ CREATE TABLE  employee(
+     employee_id INTEGER PRIMARY KEY,
+     employee_Name TEXT UNIQUE,
+     department TEXT NOT NULL CHECK (department IN ('Sales', 'Finance', 'Operations'))
+  );
