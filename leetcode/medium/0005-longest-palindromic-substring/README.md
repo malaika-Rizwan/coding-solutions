@@ -36,8 +36,8 @@ Output: "bb"
 
 **Language:** Java  
 **Runtime:** 14 ms (beats 91.80%)  
-**Memory:** 43.8 MB (beats 46.47%)  
-**Submitted:** 2026-09-16T14:44:49.332Z  
+**Memory:** 43.6 MB (beats 70.09%)  
+**Submitted:** 2026-09-16T14:45:04.320Z  
 
 ```java
 class Solution {
