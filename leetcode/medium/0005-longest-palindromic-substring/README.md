@@ -35,9 +35,9 @@ Output: "bb"
 ## Solution
 
 **Language:** Java  
-**Runtime:** 15 ms (beats 60.62%)  
-**Memory:** 43.7 MB (beats 50.93%)  
-**Submitted:** 2026-09-16T14:44:43.004Z  
+**Runtime:** 14 ms (beats 91.80%)  
+**Memory:** 43.8 MB (beats 46.47%)  
+**Submitted:** 2026-09-16T14:44:49.332Z  
 
 ```java
 class Solution {
