@@ -111,8 +111,8 @@ Reading stops at the first non-digit character 'w'.
 
 **Language:** Java  
 **Runtime:** 1 ms (beats 100.00%)  
-**Memory:** 43.6 MB (beats 87.45%)  
-**Submitted:** 2026-09-16T14:48:32.222Z  
+**Memory:** 43.8 MB (beats 57.56%)  
+**Submitted:** 2026-09-16T14:48:25.326Z  
 
 ```java
 class Solution {
