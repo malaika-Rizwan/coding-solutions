@@ -33,7 +33,7 @@ Write a query which does the following
 **Language:** SQL  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-16T14:52:00.455Z  
+**Submitted:** 2026-09-16T14:52:07.427Z  
 
 ```sql
 /*Solution as follows*/
