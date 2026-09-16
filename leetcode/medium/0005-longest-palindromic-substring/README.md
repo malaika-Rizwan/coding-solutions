@@ -1,0 +1,90 @@
+# Longest Palindromic Substring
+
+![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
+
+## Problem
+
+Given a string `s`, return  *the longest*   *palindromic*   *substring*  in `s`.
+
+ 
+
+ **Example 1:** 
+
+```
+Input: s = "babad"
+Output: "bab"
+Explanation: "aba" is also a valid answer.
+
+```
+
+ **Example 2:** 
+
+```
+Input: s = "cbbd"
+Output: "bb"
+
+```
+
+ 
+
+ **Constraints:** 
+
+- 1 <= s.length <= 1000
+- s consist of only digits and English letters.
+
+## Solution
+
+**Language:** Java  
+**Runtime:** 15 ms (beats 60.62%)  
+**Memory:** 43.7 MB (beats 50.93%)  
+**Submitted:** 2026-09-16T14:44:43.004Z  
+
+```java
+class Solution {
+    public String longestPalindrome(String s) {
+
+        if (s.length() < 2) {
+            return s;
+        }
+
+        int start = 0;
+        int end = 0;
+
+        for (int i = 0; i < s.length(); i++) {
+
+            // Odd length palindrome
+            int len1 = expandAroundCenter(s, i, i);
+
+            // Even length palindrome
+            int len2 = expandAroundCenter(s, i, i + 1);
+
+            int len = Math.max(len1, len2);
+
+            // Update the longest palindrome
+            if (len > end - start + 1) {
+                start = i - (len - 1) / 2;
+                end = i + len / 2;
+            }
+        }
+
+        return s.substring(start, end + 1);
+    }
+
+    private int expandAroundCenter(String s, int left, int right) {
+
+        while (left >= 0 &&
+               right < s.length() &&
+               s.charAt(left) == s.charAt(right)) {
+
+            left--;
+            right++;
+        }
+
+        return right - left - 1;
+    }
+}
+```
+
+---
+
+[View on LeetCode](https://leetcode.com/problems/longest-palindromic-substring/)
