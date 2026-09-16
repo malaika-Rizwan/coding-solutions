@@ -1,7 +1,6 @@
-/* Solution as follows */
+/*Solution as follows*/
 
-UPDATE employee
-SET Department = 'HR'
-WHERE Employee_id = 02;
+ALTER TABLE employee
+ADD COLUMN Hourly_Pay INT default 100;
 
-select * from employee;
+Select * from employee;
