@@ -1,6 +1,7 @@
-/*Solution as follows*/
+/* Solution as follows */
 
-ALTER TABLE employee
-ADD COLUMN Hourly_Pay INT default 100;
+UPDATE employee
+SET Hourly_Pay = 150    -- Hourly_Pay updated here
+WHERE Department = 'Hr';
 
-Select * from employee;
+Select * from employee; -- Output the entire table
