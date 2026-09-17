@@ -16,7 +16,7 @@ The Query written in the console is trying to create a table and add data to the
 **Language:** SQL  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-17T17:15:44.093Z  
+**Submitted:** 2026-09-17T17:16:31.191Z  
 
 ```sql
 /* Solution as follows */
