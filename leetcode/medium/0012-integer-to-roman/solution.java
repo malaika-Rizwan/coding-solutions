@@ -1,26 +1,28 @@
 class Solution {
-    public int maxArea(int[] height) {
-        int left = 0;
-        int right = height.length - 1;
+    public String intToRoman(int num) {
 
-        int maxArea = 0;
+        int[] values = {
+            1000, 900, 500, 400,
+            100, 90, 50, 40,
+            10, 9, 5, 4, 1
+        };
 
-        while (left < right) {
-            int width = right - left;
-            int h = Math.min(height[left], height[right]);
+        String[] symbols = {
+            "M", "CM", "D", "CD",
+            "C", "XC", "L", "XL",
+            "X", "IX", "V", "IV", "I"
+        };
 
-            int area = width * h;
+        StringBuilder result = new StringBuilder();
 
-            maxArea = Math.max(maxArea, area);
+        for (int i = 0; i < values.length; i++) {
 
-            // Move the shorter line
-            if (height[left] < height[right]) {
-                left++;
-            } else {
-                right--;
+            while (num >= values[i]) {
+                result.append(symbols[i]);
+                num -= values[i];
             }
         }
 
-        return maxArea;
+        return result.toString();
     }
 }
