@@ -1,7 +1,6 @@
 /* Solution as follows */
 
-UPDATE customer
-SET Age = 52
-WHERE Id = 3;
+DELETE FROM customer
+WHERE Id = 1;
 
 select  * from customer;
