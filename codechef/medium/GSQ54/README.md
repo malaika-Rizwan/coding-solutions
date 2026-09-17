@@ -41,7 +41,7 @@ Write a query which does the following
 **Language:** SQL  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-17T17:14:03.288Z  
+**Submitted:** 2026-09-17T17:14:27.771Z  
 
 ```sql
 /* Solution as follows */
