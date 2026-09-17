@@ -50,9 +50,9 @@ Explanation: We have only one sub-array of sum = 6.
 ## Solution
 
 **Language:** Java  
-**Runtime:** 6 ms (beats 99.10%)  
-**Memory:** 91.2 MB (beats 46.64%)  
-**Submitted:** 2026-09-17T17:23:18.628Z  
+**Runtime:** 7 ms (beats 84.30%)  
+**Memory:** 90.9 MB (beats 81.17%)  
+**Submitted:** 2026-09-17T17:24:12.836Z  
 
 ```java
 class Solution {
