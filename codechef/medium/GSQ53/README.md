@@ -27,7 +27,7 @@ Imagine you are hired by a Supermarket chain as a database analyst. Your initial
 **Language:** SQL  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-17T17:13:39.353Z  
+**Submitted:** 2026-09-17T17:13:46.988Z  
 
 ```sql
 /* Solution as follows */
