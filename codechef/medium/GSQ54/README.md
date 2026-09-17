@@ -4,33 +4,53 @@
 
 ## Problem
 
-_Description not available._
+### Practice - Alter Table and Insert Data
+
+Listen
+
+Existing table - 'customer' with column headers and 0 rows.
+
+```
+┌────┬───────────────┬─────┬──────────┐
+│ Id │     Name      │ Age │ Address  │
+└────┴───────────────┴─────┴──────────┘
+
+```
+
+### Task
+
+Write a query which does the following
+
+- Take the table given above and add an additional column 'email' to the table 'customer'.
+- Consider the table 'customer' to be empty and insert the below data
+- Output all the entires in the table.
+### Expected output
+
+```
+┌────┬───────────────┬─────┬──────────┬──────────────┐
+│ Id │     Name      │ Age │ Address  │    email     │
+├────┼───────────────┼─────┼──────────┼──────────────┤
+│ 1  │ John Smith    │ 25  │ Main St  │ john@ex.com  │
+│ 2  │ Sarah Johnson │ 30  │ Broadway │ sarah@ex.com │
+└────┴───────────────┴─────┴──────────┴──────────────┘
+
+```
 
 ## Solution
 
 **Language:** SQL  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-17T17:13:50.275Z  
+**Submitted:** 2026-09-17T17:14:03.288Z  
 
 ```sql
 /* Solution as follows */
 
-CREATE TABLE customer
-(
-  Id INT,
-  Name TEXT,
-  Age INT,
-  Address TEXT
-);
-
-INSERT INTO customer(Id,Name,Age,Address)
-VALUES(1, 'John Smith', 25,  '123 Main St'),
-(2, 'Sarah Johnson', 30,'456 Broadway'),
-(3, 'Michael Brown', 45, '789 5th Ave'),
-(4, 'Jessica Davis', 28, '321 Elm St'),
-(5, 'David Lee', 35,  '555 Park Ave');
-
+ALTER TABLE customer
+ADD COLUMN email TEXT;
+INSERT INTO customer(Id,Name,Age,Address,email)
+VALUES(1, 'John Smith', 25,  'Main St','john@ex.com'),
+(2, 'Sarah Johnson', 30,'Broadway','sarah@ex.com');
 
 select  * from customer;
 ```
