@@ -52,27 +52,61 @@ Explanation: The only possible triplet sums up to 0.
 ## Solution
 
 **Language:** Java  
-**Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 43.3 MB (beats 32.23%)  
-**Submitted:** 2026-09-18T16:19:50.489Z  
+**Runtime:** 33 ms (beats 70.39%)  
+**Memory:** 59.3 MB (beats 45.28%)  
+**Submitted:** 2026-09-18T16:20:28.154Z  
 
 ```java
+import java.util.*;
+
 class Solution {
-    public String longestCommonPrefix(String[] strs) {
-        String prefix = strs[0];
+    public List<List<Integer>> threeSum(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
 
-        for (int i = 1; i < strs.length; i++) {
+        Arrays.sort(nums);
 
-            while (!strs[i].startsWith(prefix)) {
-                prefix = prefix.substring(0, prefix.length() - 1);
+        for (int i = 0; i < nums.length - 2; i++) {
 
-                if (prefix.isEmpty()) {
-                    return "";
+            // Skip duplicate first values
+            if (i > 0 && nums[i] == nums[i - 1]) {
+                continue;
+            }
+
+            int left = i + 1;
+            int right = nums.length - 1;
+
+            while (left < right) {
+                int sum = nums[i] + nums[left] + nums[right];
+
+                if (sum == 0) {
+                    result.add(Arrays.asList(
+                        nums[i],
+                        nums[left],
+                        nums[right]
+                    ));
+
+                    // Skip duplicate left values
+                    while (left < right && nums[left] == nums[left + 1]) {
+                        left++;
+                    }
+
+                    // Skip duplicate right values
+                    while (left < right && nums[right] == nums[right - 1]) {
+                        right--;
+                    }
+
+                    left++;
+                    right--;
+
+                } else if (sum < 0) {
+                    left++;
+                } else {
+                    right--;
                 }
             }
         }
 
-        return prefix;
+        return result;
     }
 }
 ```
