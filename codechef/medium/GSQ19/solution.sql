@@ -1,4 +1,5 @@
-/* Solution as follows */
+/* solution as follows */
 
-select DISTINCT Origin 
-from Flights;
+Select *
+from Flights
+WHERE Origin = 'Mumbai';
