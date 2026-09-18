@@ -36,52 +36,67 @@ Output: ["a","b","c"]
 ## Solution
 
 **Language:** Java  
-**Runtime:** 16 ms (beats 92.89%)  
-**Memory:** 45.6 MB (beats 31.36%)  
-**Submitted:** 2026-09-18T16:21:14.324Z  
+**Runtime:** 3 ms (beats 36.07%)  
+**Memory:** 49.1 MB (beats 12.05%)  
+**Submitted:** 2026-09-18T16:22:01.145Z  
 
 ```java
 import java.util.*;
 
 class Solution {
-    public int threeSumClosest(int[] nums, int target) {
 
-        Arrays.sort(nums);
+    public List<String> letterCombinations(String digits) {
+        List<String> result = new ArrayList<>();
 
-        int closestSum = nums[0] + nums[1] + nums[2];
-
-        for (int i = 0; i < nums.length - 2; i++) {
-
-            int left = i + 1;
-            int right = nums.length - 1;
-
-            while (left < right) {
-
-                int sum = nums[i] + nums[left] + nums[right];
-
-                // Update closest sum
-                if (Math.abs(sum - target) < Math.abs(closestSum - target)) {
-                    closestSum = sum;
-                }
-
-                // If exact target is found
-                if (sum == target) {
-                    return sum;
-                }
-
-                // Need a larger sum
-                if (sum < target) {
-                    left++;
-                }
-
-                // Need a smaller sum
-                else {
-                    right--;
-                }
-            }
+        if (digits.length() == 0) {
+            return result;
         }
 
-        return closestSum;
+        String[] phone = {
+            "",     // 0
+            "",     // 1
+            "abc",  // 2
+            "def",  // 3
+            "ghi",  // 4
+            "jkl",  // 5
+            "mno",  // 6
+            "pqrs", // 7
+            "tuv",  // 8
+            "wxyz"  // 9
+        };
+
+        backtrack(digits, 0, "", result, phone);
+
+        return result;
+    }
+
+    private void backtrack(
+        String digits,
+        int index,
+        String current,
+        List<String> result,
+        String[] phone
+    ) {
+
+        // If we have used all digits
+        if (index == digits.length()) {
+            result.add(current);
+            return;
+        }
+
+        // Get letters for current digit
+        String letters = phone[digits.charAt(index) - '0'];
+
+        // Try every possible letter
+        for (char letter : letters.toCharArray()) {
+            backtrack(
+                digits,
+                index + 1,
+                current + letter,
+                result,
+                phone
+            );
+        }
     }
 }
 ```
