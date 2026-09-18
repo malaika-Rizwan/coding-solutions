@@ -32,7 +32,7 @@ Code it out in the IDE.
 **Language:** SQL  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-18T16:31:59.429Z  
+**Submitted:** 2026-09-18T16:33:28.342Z  
 
 ```sql
 /* Solution as follows */
