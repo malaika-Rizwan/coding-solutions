@@ -84,7 +84,7 @@ Output
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-21T16:05:24.149Z  
+**Submitted:** 2026-09-21T16:05:27.886Z  
 
 ```java
     public static int getLength(Node head) {
