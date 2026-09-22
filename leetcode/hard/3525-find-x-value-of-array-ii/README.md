@@ -73,9 +73,9 @@ A  **suffix**  of an array is a subarray that starts at any point within the arr
 ## Solution
 
 **Language:** Java  
-**Runtime:** 0 ms  
-**Memory:** 42.9 MB  
-**Submitted:** 2026-09-22T15:17:28.757Z  
+**Runtime:** 248 ms (beats 52.63%)  
+**Memory:** 285.8 MB (beats 26.32%)  
+**Submitted:** 2026-09-22T15:17:42.791Z  
 
 ```java
 class Solution {
