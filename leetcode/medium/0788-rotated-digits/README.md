@@ -52,9 +52,9 @@ Output: 1
 ## Solution
 
 **Language:** C#  
-**Runtime:** 4 ms (beats 74.07%)  
-**Memory:** 29.4 MB (beats 70.37%)  
-**Submitted:** 2026-09-26T17:04:27.807Z  
+**Runtime:** 2 ms (beats 96.00%)  
+**Memory:** 29.8 MB (beats 40.00%)  
+**Submitted:** 2026-09-27T17:21:24.462Z  
 
 ```cs
 public class Solution
