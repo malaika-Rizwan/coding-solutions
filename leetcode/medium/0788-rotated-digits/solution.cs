@@ -1,23 +1,42 @@
 public class Solution
 {
-    public int MaxDepth(string s)
+    public int RotatedDigits(int n)
     {
-        int depth = 0;
-        int maxDepth = 0;
+        int count = 0;
 
-        foreach (char c in s)
+        for (int i = 1; i <= n; i++)
         {
-            if (c == '(')
+            int x = i;
+            bool isValid = true;
+            bool isDifferent = false;
+
+            while (x > 0)
             {
-                depth++;
-                maxDepth = Math.Max(maxDepth, depth);
+                int digit = x % 10;
+
+                // Invalid digits
+                if (digit == 3 || digit == 4 || digit == 7)
+                {
+                    isValid = false;
+                    break;
+                }
+
+                // Digits that change after rotation
+                if (digit == 2 || digit == 5 ||
+                    digit == 6 || digit == 9)
+                {
+                    isDifferent = true;
+                }
+
+                x /= 10;
             }
-            else if (c == ')')
+
+            if (isValid && isDifferent)
             {
-                depth--;
+                count++;
             }
         }
 
-        return maxDepth;
+        return count;
     }
 }
