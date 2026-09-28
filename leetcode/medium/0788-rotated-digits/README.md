@@ -52,32 +52,51 @@ Output: 1
 ## Solution
 
 **Language:** C#  
-**Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 38.8 MB (beats 42.50%)  
-**Submitted:** 2026-09-28T16:58:31.245Z  
+**Runtime:** 4 ms (beats 69.23%)  
+**Memory:** 29.5 MB (beats 53.85%)  
+**Submitted:** 2026-09-28T17:00:21.795Z  
 
 ```cs
 public class Solution
 {
-    public int MaxDepth(string s)
+    public int RotatedDigits(int n)
     {
-        int depth = 0;
-        int maxDepth = 0;
+        int count = 0;
 
-        foreach (char c in s)
+        for (int i = 1; i <= n; i++)
         {
-            if (c == '(')
+            int x = i;
+            bool isValid = true;
+            bool isDifferent = false;
+
+            while (x > 0)
             {
-                depth++;
-                maxDepth = Math.Max(maxDepth, depth);
+                int digit = x % 10;
+
+                // Invalid digits
+                if (digit == 3 || digit == 4 || digit == 7)
+                {
+                    isValid = false;
+                    break;
+                }
+
+                // Digits that change after rotation
+                if (digit == 2 || digit == 5 ||
+                    digit == 6 || digit == 9)
+                {
+                    isDifferent = true;
+                }
+
+                x /= 10;
             }
-            else if (c == ')')
+
+            if (isValid && isDifferent)
             {
-                depth--;
+                count++;
             }
         }
 
-        return maxDepth;
+        return count;
     }
 }
 ```
