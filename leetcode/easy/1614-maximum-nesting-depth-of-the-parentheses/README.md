@@ -45,32 +45,66 @@ Digit 3 is inside of 3 nested parentheses in the string.
 ## Solution
 
 **Language:** C#  
-**Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 38.3 MB (beats 93.75%)  
-**Submitted:** 2026-09-28T16:56:02.348Z  
+**Runtime:** 3 ms (beats 80.00%)  
+**Memory:** 41.2 MB (beats 70.00%)  
+**Submitted:** 2026-09-28T16:57:46.327Z  
 
 ```cs
 public class Solution
 {
-    public int MaxDepth(string s)
+    public string ReverseParentheses(string s)
     {
-        int depth = 0;
-        int maxDepth = 0;
+        Stack<StringBuilder> stack = new Stack<StringBuilder>();
 
-        foreach (char c in s)
+        StringBuilder current = new StringBuilder();
+
+        foreach (char ch in s)
         {
-            if (c == '(')
+            if (ch == '(')
             {
-                depth++;
-                maxDepth = Math.Max(maxDepth, depth);
+                // Save the current string
+                stack.Push(current);
+
+                // Start a new string
+                current = new StringBuilder();
             }
-            else if (c == ')')
+            else if (ch == ')')
             {
-                depth--;
+                // Reverse the substring inside parentheses
+                Reverse(current);
+
+                // Get the string before '('
+                StringBuilder previous = stack.Pop();
+
+                // Add reversed substring to previous string
+                previous.Append(current);
+
+                current = previous;
+            }
+            else
+            {
+                // Add normal character
+                current.Append(ch);
             }
         }
 
-        return maxDepth;
+        return current.ToString();
+    }
+
+    private void Reverse(StringBuilder sb)
+    {
+        int left = 0;
+        int right = sb.Length - 1;
+
+        while (left < right)
+        {
+            char temp = sb[left];
+            sb[left] = sb[right];
+            sb[right] = temp;
+
+            left++;
+            right--;
+        }
     }
 }
 ```
