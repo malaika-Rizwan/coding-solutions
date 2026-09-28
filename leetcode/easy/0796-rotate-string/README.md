@@ -39,8 +39,8 @@ Output: false
 
 **Language:** C#  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 42.9 MB (beats 55.73%)  
-**Submitted:** 2026-09-27T17:24:18.213Z  
+**Memory:** 42.8 MB (beats 69.78%)  
+**Submitted:** 2026-09-28T17:01:24.343Z  
 
 ```cs
 public class Solution
