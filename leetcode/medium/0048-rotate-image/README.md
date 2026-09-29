@@ -36,23 +36,19 @@ Output: [[15,13,2,5],[14,3,4,1],[12,6,8,9],[16,7,10,11]]
 
 ## Solution
 
-**Language:** C#  
+**Language:** Java  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 46.3 MB (beats 91.89%)  
-**Submitted:** 2026-09-28T17:13:29.548Z  
+**Memory:** 44 MB (beats 16.62%)  
+**Submitted:** 2026-09-29T17:19:24.707Z  
 
-```cs
-public class Solution
-{
-    public void Rotate(int[][] matrix)
-    {
-        int n = matrix.Length;
+```java
+class Solution {
+    public void rotate(int[][] matrix) {
+        int n = matrix.length;
 
         // Step 1: Transpose the matrix
-        for (int i = 0; i < n; i++)
-        {
-            for (int j = i + 1; j < n; j++)
-            {
+        for (int i = 0; i < n; i++) {
+            for (int j = i; j < n; j++) {
                 int temp = matrix[i][j];
                 matrix[i][j] = matrix[j][i];
                 matrix[j][i] = temp;
@@ -60,13 +56,11 @@ public class Solution
         }
 
         // Step 2: Reverse every row
-        for (int i = 0; i < n; i++)
-        {
+        for (int i = 0; i < n; i++) {
             int left = 0;
             int right = n - 1;
 
-            while (left < right)
-            {
+            while (left < right) {
                 int temp = matrix[i][left];
                 matrix[i][left] = matrix[i][right];
                 matrix[i][right] = temp;
