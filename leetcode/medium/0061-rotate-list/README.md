@@ -34,60 +34,54 @@ Output: [2,0,1]
 
 ## Solution
 
-**Language:** C#  
+**Language:** Java  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 42.9 MB (beats 34.48%)  
-**Submitted:** 2026-09-27T17:28:16.948Z  
+**Memory:** 44.5 MB (beats 25.51%)  
+**Submitted:** 2026-09-30T14:26:17.011Z  
 
-```cs
-public class Solution
-{
-    public ListNode RotateRight(ListNode head, int k)
-    {
-        // Empty list or only one node
-        if (head == null || head.next == null || k == 0)
-        {
+```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode rotateRight(ListNode head, int k) {
+        if(head==null || head.next==null || k==0){
             return head;
         }
+        int length=1;
+        ListNode tail=head;
 
-        // Find length and last node
-        int length = 1;
-        ListNode tail = head;
-
-        while (tail.next != null)
-        {
-            tail = tail.next;
+        while(tail.next!=null){
+            tail=tail.next;
             length++;
+
         }
-
-        // Remove unnecessary full rotations
-        k = k % length;
-
-        if (k == 0)
-        {
+        k=k%length;
+        if(k==0){
             return head;
         }
+        tail.next=head;
 
-        // Make the list circular
-        tail.next = head;
+        int steps=length-k;
+        ListNode newTail=head;
 
-        // Find the new tail
-        int steps = length - k;
+        for(int i=1;i<steps;i++){
+            newTail=newTail.next;
 
-        ListNode newTail = head;
-
-        for (int i = 1; i < steps; i++)
-        {
-            newTail = newTail.next;
         }
+        ListNode newHead=newTail.next;
 
-        // New head is after new tail
-        ListNode newHead = newTail.next;
-
-        // Break the circle
-        newTail.next = null;
+        newTail.next=null;
 
         return newHead;
+        
     }
 }
 ```
