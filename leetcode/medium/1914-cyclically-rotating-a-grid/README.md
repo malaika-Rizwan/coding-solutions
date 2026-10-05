@@ -45,80 +45,85 @@ Explanation: The figures above represent the grid at every state.
 
 ## Solution
 
-**Language:** Java  
-**Runtime:** 2 ms (beats 96.91%)  
-**Memory:** 47.5 MB (beats 38.20%)  
-**Submitted:** 2026-10-01T16:38:11.043Z  
+**Language:** C#  
+**Runtime:** 166 ms (beats 44.44%)  
+**Memory:** 58.6 MB (beats 44.44%)  
+**Submitted:** 2026-10-05T14:39:20.750Z  
 
-```java
-class Solution {
-    public int[][] rotateGrid(int[][] grid, int k) {
-        int m = grid.length;
-        int n = grid[0].length;
+```cs
+public class Solution
+{
+    public int[][] RotateGrid(int[][] grid, int k)
+    {
+        int m = grid.Length;
+        int n = grid[0].Length;
 
-        int layers = Math.min(m, n) / 2;
+        int layers = Math.Min(m, n) / 2;
 
-        for (int layer = 0; layer < layers; layer++) {
+        for (int layer = 0; layer < layers; layer++)
+        {
+            List<int> elements = new List<int>();
 
-            // Number of elements in this layer
-            int height = m - 2 * layer;
-            int width = n - 2 * layer;
-
-            int len = 2 * (height + width) - 4;
-
-            int[] ring = new int[len];
-
-            int index = 0;
-
-            // Top row: left -> right
-            for (int j = layer; j < n - layer; j++) {
-                ring[index++] = grid[layer][j];
-            }
-
-            // Right column: top -> bottom
-            for (int i = layer + 1; i < m - layer; i++) {
-                ring[index++] = grid[i][n - layer - 1];
-            }
-
-            // Bottom row: right -> left
-            for (int j = n - layer - 2; j >= layer; j--) {
-                ring[index++] = grid[m - layer - 1][j];
-            }
-
-            // Left column: bottom -> top
-            for (int i = m - layer - 2; i > layer; i--) {
-                ring[index++] = grid[i][layer];
-            }
-
-            // Effective rotation
-            int shift = k % len;
-
-            index = 0;
-
-            // Put rotated values back
+            int top = layer;
+            int bottom = m - 1 - layer;
+            int left = layer;
+            int right = n - 1 - layer;
 
             // Top row
-            for (int j = layer; j < n - layer; j++) {
-                grid[layer][j] =
-                    ring[(index++ + shift) % len];
+            for (int j = left; j <= right; j++)
+            {
+                elements.Add(grid[top][j]);
             }
 
             // Right column
-            for (int i = layer + 1; i < m - layer; i++) {
-                grid[i][n - layer - 1] =
-                    ring[(index++ + shift) % len];
+            for (int i = top + 1; i <= bottom; i++)
+            {
+                elements.Add(grid[i][right]);
             }
 
             // Bottom row
-            for (int j = n - layer - 2; j >= layer; j--) {
-                grid[m - layer - 1][j] =
-                    ring[(index++ + shift) % len];
+            for (int j = right - 1; j >= left; j--)
+            {
+                elements.Add(grid[bottom][j]);
             }
 
             // Left column
-            for (int i = m - layer - 2; i > layer; i--) {
-                grid[i][layer] =
-                    ring[(index++ + shift) % len];
+            for (int i = bottom - 1; i > top; i--)
+            {
+                elements.Add(grid[i][left]);
+            }
+
+            int len = elements.Count;
+            int rotation = k % len;
+
+            int index = 0;
+
+            // Top row
+            for (int j = left; j <= right; j++)
+            {
+                grid[top][j] = elements[(index + rotation) % len];
+                index++;
+            }
+
+            // Right column
+            for (int i = top + 1; i <= bottom; i++)
+            {
+                grid[i][right] = elements[(index + rotation) % len];
+                index++;
+            }
+
+            // Bottom row
+            for (int j = right - 1; j >= left; j--)
+            {
+                grid[bottom][j] = elements[(index + rotation) % len];
+                index++;
+            }
+
+            // Left column
+            for (int i = bottom - 1; i > top; i--)
+            {
+                grid[i][left] = elements[(index + rotation) % len];
+                index++;
             }
         }
 
