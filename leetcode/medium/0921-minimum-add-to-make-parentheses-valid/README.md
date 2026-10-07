@@ -45,8 +45,8 @@ Output: 3
 
 **Language:** C#  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 39.8 MB (beats 36.67%)  
-**Submitted:** 2026-10-06T15:26:48.584Z  
+**Memory:** 40 MB (beats 20.64%)  
+**Submitted:** 2026-10-07T17:31:04.105Z  
 
 ```cs
 public class Solution
