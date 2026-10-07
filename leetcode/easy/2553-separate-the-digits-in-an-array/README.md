@@ -45,47 +45,36 @@ answer = [7,1,3,9].
 
 ## Solution
 
-**Language:** Java  
-**Runtime:** 5 ms (beats 79.18%)  
-**Memory:** 46.8 MB (beats 20.51%)  
-**Submitted:** 2026-10-02T15:48:03.493Z  
+**Language:** C#  
+**Runtime:** 6 ms (beats 47.25%)  
+**Memory:** 51.2 MB (beats 49.45%)  
+**Submitted:** 2026-10-07T17:36:40.764Z  
 
-```java
+```cs
+public class Solution
+{
+    public int[] SeparateDigits(int[] nums)
+    {
+        List<int> answer = new List<int>();
 
-import java.util.*;
+        foreach (int number in nums)
+        {
+            int num = number;
+            List<int> digits = new List<int>();
 
-class Solution {
-    public int[] separateDigits(int[] nums) {
-
-        List<Integer> list = new ArrayList<>();
-
-        for (int num : nums) {
-
-            List<Integer> temp = new ArrayList<>();
-
-            while (num > 0) {
-
+            while (num > 0)
+            {
                 int digit = num % 10;
-
-                temp.add(digit);
-
+                digits.Add(digit);
                 num = num / 10;
             }
 
-            // Add digits in correct order
-            for (int i = temp.size() - 1; i >= 0; i--) {
-                list.add(temp.get(i));
-            }
+            digits.Reverse();
+
+            answer.AddRange(digits);
         }
 
-        // Convert ArrayList to int[]
-        int[] answer = new int[list.size()];
-
-        for (int i = 0; i < list.size(); i++) {
-            answer[i] = list.get(i);
-        }
-
-        return answer;
+        return answer.ToArray();
     }
 }
 ```
