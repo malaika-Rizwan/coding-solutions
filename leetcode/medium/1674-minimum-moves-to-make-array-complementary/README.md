@@ -56,9 +56,9 @@ Explanation: nums is already complementary.
 ## Solution
 
 **Language:** C#  
-**Runtime:** 0 ms  
-**Memory:** 41.2 MB  
-**Submitted:** 2026-10-08T14:47:31.042Z  
+**Runtime:** 9 ms (beats 60.00%)  
+**Memory:** 66.7 MB (beats 80.00%)  
+**Submitted:** 2026-10-08T14:49:10.291Z  
 
 ```cs
 public class Solution
@@ -74,26 +74,25 @@ public class Solution
 
             int sum = a + b;
 
-            // Initially: 2 moves for every possible sum
+            // Initially, every sum requires 2 moves
             diff[2] += 2;
 
-            // From a + 1, we only need 1 move
+            // From a + 1, it becomes possible with 1 move
             diff[a + 1] -= 1;
 
-            // At the current sum, we need 0 moves
+            // At the original sum, it requires 0 moves
             diff[sum] -= 1;
 
-            // After the current sum, we need 1 move again
+            // After the original sum, it goes back to 1 move
             diff[sum + 1] += 1;
 
-            // After b + limit, we need 2 moves again
-            diff[b + limit + 1] -= 1;
+            // After b + limit, it goes back to 2 moves
+            diff[b + limit + 1] += 1; // FIXED
         }
 
-        int answer = nums.Length;
         int moves = 0;
+        int answer = nums.Length;
 
-        // Calculate actual number of moves for every target sum
         for (int target = 2; target <= 2 * limit; target++)
         {
             moves += diff[target];
