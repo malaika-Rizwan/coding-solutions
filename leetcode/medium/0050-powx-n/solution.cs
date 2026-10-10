@@ -4,26 +4,23 @@ public class Solution
     public double MyPow(double x, int n)
     {
         long power = n;
+        bool negative = power < 0;
 
-        if (power < 0)
-        {
-            x = 1 / x;
-            power = -power;
-        }
+        power = Math.Abs(power);
 
-        double result = 1;
+        double result = 1.0;
 
         while (power > 0)
         {
-            if (power % 2 == 1)
+            if ((power & 1) == 1)
             {
                 result *= x;
             }
 
             x *= x;
-            power /= 2;
+            power >>= 1;
         }
 
-        return result;
+        return negative ? 1.0 / result : result;
     }
 }
