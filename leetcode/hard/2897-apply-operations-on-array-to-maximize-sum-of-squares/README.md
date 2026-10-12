@@ -52,9 +52,9 @@ It can be shown that this is the maximum value we can get.
 ## Solution
 
 **Language:** C#  
-**Runtime:** 0 ms  
-**Memory:** 42.1 MB  
-**Submitted:** 2026-10-12T16:05:00.861Z  
+**Runtime:** 68 ms (beats 40.00%)  
+**Memory:** 72.5 MB (beats 20.00%)  
+**Submitted:** 2026-10-12T16:05:07.070Z  
 
 ```cs
 
