@@ -52,9 +52,9 @@ The alternating score is calculated as:
 ## Solution
 
 **Language:** C#  
-**Runtime:** 2 ms  
-**Memory:** 41 MB  
-**Submitted:** 2026-10-13T17:41:40.741Z  
+**Runtime:** 213 ms (beats 40.00%)  
+**Memory:** 66.4 MB (beats 60.00%)  
+**Submitted:** 2026-10-13T17:41:49.748Z  
 
 ```cs
 
