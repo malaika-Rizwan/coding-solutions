@@ -50,49 +50,48 @@ Output: -1
 
 ## Solution
 
-**Language:** Java  
+**Language:** C#  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 44 MB (beats 11.99%)  
-**Submitted:** 2026-09-24T16:54:16.158Z  
+**Memory:** 41.5 MB (beats 98.92%)  
+**Submitted:** 2026-10-17T18:15:16.418Z  
 
-```java
-class Solution {
-    public int search(int[] nums, int target) {
+```cs
 
+public class Solution
+{
+    public int Search(int[] nums, int target)
+    {
         int left = 0;
-        int right = nums.length - 1;
+        int right = nums.Length - 1;
 
-        while (left <= right) {
-
+        while (left <= right)
+        {
             int mid = left + (right - left) / 2;
 
-            // Target found
-            if (nums[mid] == target) {
+            if (nums[mid] == target)
                 return mid;
-            }
 
             // Left half is sorted
-            if (nums[left] <= nums[mid]) {
-
-                // Target lies in the sorted left half
-                if (nums[left] <= target && target < nums[mid]) {
+            if (nums[left] <= nums[mid])
+            {
+                if (target >= nums[left] && target < nums[mid])
+                {
                     right = mid - 1;
-                } 
-                // Target lies in the right half
-                else {
+                }
+                else
+                {
                     left = mid + 1;
                 }
-
-            } 
+            }
             // Right half is sorted
-            else {
-
-                // Target lies in the sorted right half
-                if (nums[mid] < target && target <= nums[right]) {
+            else
+            {
+                if (target > nums[mid] && target <= nums[right])
+                {
                     left = mid + 1;
-                } 
-                // Target lies in the left half
-                else {
+                }
+                else
+                {
                     right = mid - 1;
                 }
             }
@@ -101,6 +100,7 @@ class Solution {
         return -1;
     }
 }
+
 ```
 
 ---
