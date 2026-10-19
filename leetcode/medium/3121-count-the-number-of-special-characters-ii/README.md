@@ -50,9 +50,9 @@ There are no special characters in `word`.
 ## Solution
 
 **Language:** C#  
-**Runtime:** 76 ms (beats 35.29%)  
-**Memory:** 55.3 MB (beats 52.94%)  
-**Submitted:** 2026-10-19T18:14:20.967Z  
+**Runtime:** 75 ms (beats 41.18%)  
+**Memory:** 54.6 MB (beats 88.24%)  
+**Submitted:** 2026-10-19T18:18:12.574Z  
 
 ```cs
 
