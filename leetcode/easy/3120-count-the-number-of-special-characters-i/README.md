@@ -51,8 +51,8 @@ The only special character in `word` is `'b'`.
 
 **Language:** C#  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 40 MB (beats 94.74%)  
-**Submitted:** 2026-10-19T18:12:24.274Z  
+**Memory:** 40.3 MB (beats 89.47%)  
+**Submitted:** 2026-10-19T18:12:32.017Z  
 
 ```cs
 
