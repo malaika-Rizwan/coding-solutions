@@ -55,8 +55,8 @@ Return the  **minimum**  number of operations required to make `s` sorted in  **
 
 **Language:** C#  
 **Runtime:** 0 ms  
-**Memory:** 37.9 MB  
-**Submitted:** 2026-10-21T13:48:30.571Z  
+**Memory:** 37.7 MB  
+**Submitted:** 2026-10-21T13:49:59.974Z  
 
 ```cs
 
@@ -65,8 +65,6 @@ public class Solution
     public int MinOperations(string s)
     {
         int n = s.Length;
-
-        // Already sorted
         bool sorted = true;
 
         for (int i = 1; i < n; i++)
@@ -81,40 +79,31 @@ public class Solution
         if (sorted)
             return 0;
 
-        // A single character cannot be changed
-        if (n == 1)
-            return -1;
-
-        // Length 2: the only proper substring that can
-        // change the string is the whole string, which is forbidden.
         if (n == 2)
             return -1;
 
-        // If the first character is the smallest and the last
-        // character is the largest, sort the middle substring.
-        char minChar = 'z';
-        char maxChar = 'a';
+        char minChar = s[0];
+        char maxChar = s[0];
 
-        foreach (char c in s)
+        for (int i = 1; i < n; i++)
         {
-            minChar = (char)Math.Min(minChar, c);
-            maxChar = (char)Math.Max(maxChar, c);
+            minChar = (char)Math.Min(minChar, s[i]);
+            maxChar = (char)Math.Max(maxChar, s[i]);
         }
 
-        if (s[0] == minChar && s[n - 1] == maxChar)
+        // One operation is enough
+        if (s[0] == minChar || s[n - 1] == maxChar)
             return 1;
 
-        // If either endpoint is already in its correct extreme
-        // position, two operations are sufficient.
-        if (s[0] == minChar || s[n - 1] == maxChar)
-            return 2;
+        // Check whether min or max occurs inside the string
+        for (int i = 1; i < n - 1; i++)
+        {
+            if (s[i] == minChar || s[i] == maxChar)
+                return 2;
+        }
 
-        // If the minimum is at the end and the maximum at the
-        // beginning, three operations are sufficient.
-        if (s[0] == maxChar && s[n - 1] == minChar)
-            return 3;
-
-        return 2;
+        // Minimum is at the end and maximum at the beginning
+        return 3;
     }
 }
 
