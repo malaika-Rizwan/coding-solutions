@@ -54,9 +54,9 @@ Return the  **minimum**  number of operations required to make `s` sorted in  **
 ## Solution
 
 **Language:** C#  
-**Runtime:** 0 ms  
-**Memory:** 37.7 MB  
-**Submitted:** 2026-10-21T13:49:59.974Z  
+**Runtime:** 8 ms (beats 100.00%)  
+**Memory:** 56.3 MB (beats 100.00%)  
+**Submitted:** 2026-10-21T13:50:06.084Z  
 
 ```cs
 
